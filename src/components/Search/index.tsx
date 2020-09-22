@@ -1,7 +1,7 @@
 import React, {useState, useCallback} from 'react';
 import { useDispatch } from 'react-redux';
 import getNameInfo from '../../api/getNameInfo';
-import { ADD_HISTORY_ITEM } from '../../store/history/types';
+import { addHistoryItem } from '../../store/history/actions';
 
 const SearchPage: React.FC<any> = () => {
     const [resultMode, setResultMode] = useState(false);
@@ -22,14 +22,11 @@ const SearchPage: React.FC<any> = () => {
                     if(country && gender) {
                         setResultCountry(country);
                         setResultGender(gender);
-                        dispatch({
-                            type: ADD_HISTORY_ITEM,
-                            payload: {
-                                name: inputValue,
-                                gender,
-                                country,
-                            }
-                        });
+                        dispatch(addHistoryItem({
+                            name: inputValue,
+                            gender,
+                            country,
+                        }));
                     }
                 }
             }

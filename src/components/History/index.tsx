@@ -18,15 +18,15 @@ const HistoryPage: React.FC<any> = () => {
                             <th>Country</th>
                         </tr>
                     </thead>
+                    <tbody>
                     {historyItems.map((item,i) =>
-                    <tbody key={''+item+i}>
-                        <tr>
+                        <tr key={''+item+i}>
                             <td>{item.name}</td>
                             <td>{item.gender}</td>
                             <td>{item.country}</td>
                         </tr>
-                    </tbody>
                     )}
+                    </tbody>
                 </table>) :
                 <h2>Search history is empty...</h2>
             }
