@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { historyReducer } from './store/history/reducers';
+import { Provider } from 'react-redux';
+
 import './index.css';
-import App from './App';
+import {Routes} from './App';
 import * as serviceWorker from './serviceWorker';
+
+const store = createStore(historyReducer);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <Routes />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
